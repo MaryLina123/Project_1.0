@@ -1,0 +1,416 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Allow full height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: white;
+    display: block; /* Default block layout allows natural scrolling */
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+header h1 {
+    position: relative;
+    z-index: 5;
+    margin: 50px 0 0;
+    color: blue;
+}
+
+/* Logo styling */
+#header-logo {
+    position: relative;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    object-fit: cover;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#header-logo:hover {
+    transform: scale(1.3);
+    animation: rainbow-border 1.5s infinite;
+}
+
+/* Keyframes for rainbow effect */
+@keyframes rainbow-border {
+    0% { border-color: red; }
+    20% { border-color: orange; }
+    40% { border-color: yellow; }
+    60% { border-color: green; }
+    80% { border-color: blue; }
+    100% { border-color: purple; }
+}
+
+#header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Navigation styling */
+nav {
+    background-color: rgb(1, 80, 170);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 100px;
+    position: relative;
+}
+
+/* Styling navigation links to look like buttons */
+nav ul li a.nav-button {
+    display: inline-flex;
+    padding: 10px 20px;
+    background-color: transparent; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    transition: color 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Styling for the icon inside the button */
+nav ul li a.nav-button i {
+    margin-right: 10px; 
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for navigation buttons */
+nav ul li a.nav-button:hover {
+    color: rgba(0, 106, 245, 0.884);
+}
+
+nav ul li a.nav-button:hover i {
+    color: rgba(0, 106, 245, 0.884);
+}
+
+/* Add underline effect using pseudo-element */
+nav ul li a.nav-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: rgba(0, 106, 245, 0.884);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Expand underline on hover */
+nav ul li a.nav-button:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.dropdown a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown a:hover {
+    color: rgba(0, 106, 245, 0.884);
+}
+
+/* Styling for the dropdown content */
+.dropdown .Menu_Content {
+    display: none;
+    position: absolute;
+    background-color: rgb(1, 80, 170);
+    min-width: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+/* Section styling */
+section {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: column; /* Stack the boxes vertically */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Box styling */
+.Box {
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for box1 */
+#box1 {
+    border: 1px solid transparent;
+    width: 1100px;
+    height: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Styling for box2 */
+#box2 {
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    width: 850px;
+    min-height: 300px; 
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#box2 p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#box2 ul {
+    margin: 0;
+    padding-left: 5px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #box2 {
+        width: 100%;
+        min-height: auto;
+    }
+
+    #box3 {
+        width: 100%;
+    }
+
+    .wrapper {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+
+/* Styling for box4 */
+#box4 {
+    width: 1200px;
+    min-height: auto; 
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+#box4 p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#box4 h3 {
+    font-size: 25px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#box4 ul {
+    margin: 0;
+    padding-left: 5px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+
+
+
+
+
+/* Styling for box3 (right box) */
+#box3 {
+    border: 1px solid transparent;
+    width: 300px; /* Adjust width */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+/* Styling for the logo inside box3 */
+#box3 img {
+    width: 250px; /* Set width for the logo */
+    height: 250px; /* Set height for the logo */
+    object-fit: cover; /* Make sure image fits correctly */
+    border-radius: 10%; /* Round corners */
+}
+
+/* Styles for the container and wrapper */
+.container {
+    width: 100%; /* Full width of box3 */
+    height: 100%;
+    overflow: hidden; /* Hide overflowing images */
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    width: calc((300px + 20px) * 17); /* Adjusted width to fit 17 images */
+    height: 100%;
+    animation: slide 50s ease-in-out infinite; /* Increase animation duration to 34s for smoother transition */
+    gap: 20px;
+}
+
+.wrapper img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 15%;
+    background: #f0f0f0;
+}
+
+@keyframes slide {
+    0%, 6.25% {
+        transform: translateX(0); /* 1st image */
+    }
+    6.25%, 12.5% {
+        transform: translateX(-260px); /* 2nd image */
+    }
+    12.5%, 18.75% {
+        transform: translateX(-540px); /* 3rd image */
+    }
+    18.75%, 25% {
+        transform: translateX(-800px); /* 4th image */
+    }
+    25%, 31.25% {
+        transform: translateX(-1080px); /* 5th image */
+    }
+    31.25%, 37.5% {
+        transform: translateX(-1350px); /* 6th image */
+    }
+    37.5%, 43.75% {
+        transform: translateX(-1620px); /* 7th image */
+    }
+    43.75%, 50% {
+        transform: translateX(-1890px); /* 8th image */
+    }
+    50%, 56.25% {
+        transform: translateX(-2145px); /* 9th image */
+    }
+    56.25%, 62.5% {
+        transform: translateX(-2410px); /* 10th image */
+    }
+    62.5%, 68.75% {
+        transform: translateX(-2700px); /* 11th image */
+    }
+    68.75%, 75% {
+        transform: translateX(-2970px); /* 12th image */
+    }
+    75%, 81.25% {
+        transform: translateX(-3240px); /* 13th image */
+    }
+    81.25%, 87.5% {
+        transform: translateX(-3500px); /* 14th image */
+    }
+    87.5%, 93.75% {
+        transform: translateX(-3780px); /* 15th image */
+    }
+    93.75%, 100% {
+        transform: translateX(-4050px); /* 16th image */
+    }
+    100% {
+        transform: translateX(0px); 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer styling */
+footer {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    font-size: 12px;
+    position: relative; /* Footer will stay at the bottom of the content */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adds space above the footer */
+}
+
